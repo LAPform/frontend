@@ -11,26 +11,32 @@ type Form = {
   createdAt: string;
 }
 
-const formsQuery = {
+type Query = {
+  isLoading: boolean;
+  error: Error | null;
+  data: Form[] | null;
+}
+
+export const formsQuery : Query = {
   isLoading: false,
   error: null,
   data: [
     {
       id: "form-001",
-      title: "Customer Feedback Survey",
-      description: "Gather customer feedback on our products and services",
+      title: "Enquête sur le ressenti client",
+      description: "Rassembler les retours des clients sur nos services",
       createdAt: "2025-10-20T10:30:00.000Z"
     },
     {
       id: "form-002",
-      title: "Employee Onboarding",
-      description: "New employee information and documentation",
+      title: "Nouveau formulaire d'employé",
+      description: "Formulaire pour l'intégration des nouveaux employés",
       createdAt: "2025-10-21T14:15:00.000Z"
     },
     {
       id: "form-003",
-      title: "Event Registration",
-      description: "Registration form for upcoming company event",
+      title: "Formulaire d'inscription à l'événement",
+      description: "Collecter les inscriptions pour notre prochain événement",
       createdAt: "2025-10-22T09:00:00.000Z"
     }
   ]
@@ -43,7 +49,7 @@ export default function FormList() {
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-lg">
             <FileText className="w-5 h-5" />
-            <span>Formulaires existants</span>
+            <span>Formulaires de test</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -76,7 +82,7 @@ export default function FormList() {
                       </div>
                       <div className="flex space-x-2 ml-4">
                         <Button variant="outline" size="sm" asChild>
-                          <Link href={`/form/${form.id}?admin=true`}>
+                          <Link href={`/form/${form.id}`}>
                             View
                           </Link>
                         </Button>
