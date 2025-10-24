@@ -1,7 +1,18 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { formsQuery} from "../FormList";
+"use client";
 
-export default function FormHeader({ formId } : { formId : string }) {
+import { Card, CardContent, CardHeader, CardTitle, CardAction } from "@/components/ui/card";
+import { formsQuery } from "../FormList";
+import { Ellipsis, Pencil, Trash2 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
+import Link from "next/link";
+
+export default function FormHeader({ formId }: { formId: string }) {
 
   const title = formsQuery.data?.find(form => form.id === formId)?.title || "Titre du formulaire";
   const description = formsQuery.data?.find(form => form.id === formId)?.description || "Description";
@@ -11,6 +22,37 @@ export default function FormHeader({ formId } : { formId : string }) {
       <Card className="min-h-40">
         <CardHeader>
           <CardTitle className="text-xl">{title}</CardTitle>
+          <CardAction>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="hover:bg-neutral-200 p-2 rounded-lg cursor-pointer"><Ellipsis className="text-neutral-500" /></DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem><Pencil />Editer</DropdownMenuItem>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <DropdownMenuItem variant="destructive" onSelect={(e) => e.preventDefault()}>
+                      <Trash2 className="w-4 h-4" /> Supprimer
+                    </DropdownMenuItem>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Supprimer le formulaire</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Êtes-vous sûr de vouloir supprimer ce formulaire ? Cette action est irréversible et supprimera définitivement le formulaire ainsi que toutes ses réponses.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Annuler</AlertDialogCancel>
+                      <AlertDialogAction
+                        className="bg-destructive/10 text-destructive hover:bg-destructive hover:text-white"
+                      >
+                        <Link href={"/"}> Supprimer le formulaire</Link>
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardAction>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">{description}</p>
