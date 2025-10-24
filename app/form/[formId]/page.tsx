@@ -8,8 +8,7 @@ export default async function page({ params } : { params : Promise<{ formId: str
   return (
     <div className="centerClass py-28">
       <FormHeader formId={formId}/>
-      <h1>Form : {formId}</h1>
-      <SectionTabs/>
+      <SectionTabs formId={formId}/>
     </div>
   )
 }
