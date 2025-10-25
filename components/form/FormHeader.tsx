@@ -43,9 +43,9 @@ export default function FormHeader({ formId }: { formId: string }) {
                     <AlertDialogFooter>
                       <AlertDialogCancel>Annuler</AlertDialogCancel>
                       <AlertDialogAction
-                        className="bg-destructive/10 text-destructive hover:bg-destructive hover:text-white"
+                        className="bg-destructive/10 text-destructive hover:bg-destructive hover:text-white p-0 m-0"
                       >
-                        <Link href={"/"}> Supprimer le formulaire</Link>
+                        <Link href={"/"} className="p-2 rounded-md"> Supprimer le formulaire</Link>
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>

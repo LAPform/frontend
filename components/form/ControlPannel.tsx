@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Plus, Trash2, Key, Badge } from "lucide-react";
+import { Plus, Trash2, Key} from "lucide-react";
 
 export type FormPassword = {
   id: string;
@@ -79,7 +79,7 @@ export default function ControlPannel() {
                 <div key={password.id} className="flex items-center justify-between p-3 border rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className="flex items-center space-x-2">
-                      <div className={`w-3 h-3 rounded-full ${password.used ? 'bg-green-500' : 'bg-red-500'}`} />
+                      <div className={`w-3 h-3 rounded-full ${password.used ? 'bg-red-500' : 'bg-green-500'}`} />
                       <span className="text-xs text-muted-foreground">
                         {password.used ? 'Utilisé' : 'Disponible'}
                       </span>

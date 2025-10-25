@@ -125,3 +125,9 @@
 .centerClass {
   @apply max-w-7xl mx-auto w-full px-4;
 } 
+
+/* global.css */
+  html body[data-scroll-locked] {
+    overflow: visible !important;
+    margin-right: 0 !important;
+  } 
