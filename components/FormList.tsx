@@ -44,47 +44,11 @@ export default function FormList() {
                         </p>
                       </div>
                       <div className="flex space-x-2 ml-4">
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="default" size="sm" asChild>
                           <Link href={`/form/${form.id}`}>
                             View
                           </Link>
                         </Button>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                        >
-                          <Copy className="w-4 h-4 mr-1" />
-                          Duplicate
-                        </Button>
-                        <Button size="sm" asChild>
-                          <Link href={`/builder/${form.id}`}>
-                            <Edit className="w-4 h-4 mr-1" />
-                            Edit
-                          </Link>
-                        </Button>
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button variant="destructive" size="sm">
-                              <Trash2 className="w-4 h-4" />
-                            </Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>Delete Form</AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Are you sure you want to delete ? This action cannot be undone and will permanently remove the form and all its responses.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction
-                                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                              >
-                                Delete Form
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
                       </div>
                     </div>
                   </CardContent>
