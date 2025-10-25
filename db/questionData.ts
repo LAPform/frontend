@@ -1,4 +1,4 @@
-import { Question, QuestionType } from "@/model/tables";
+import { Question } from "@/model/tables";
 
 export const questionList: Question[] = [
   {
@@ -16,7 +16,7 @@ export const questionList: Question[] = [
     id: "qst-002",
     form_id: "form-001",
     type: "text",
-    text: "Quel est votre adresse email ?",
+    text: "Quelle est votre adresse email ?",
     options: [],
     required: true,
     validation: {},
@@ -71,9 +71,9 @@ export const questionList: Question[] = [
     id: "qst-007",
     form_id: "form-001",
     type: "textarea",
-    text: "Vous avez d'autres remarques ?",
+    text: "Vous avez d'autres remarques, exprimez-vous ici :",
     options: [],
-    required: true,
+    required: false,
     validation: {},
     order_index: 6,
     created_at: "2025-10-20T10:30:00.000Z"

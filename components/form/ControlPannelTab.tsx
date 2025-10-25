@@ -58,7 +58,7 @@ export const passwordsQuery: PasswordQuery = {
   ]
 }
 
-export default function ControlPannel() {
+export default function ControlPannel({ formId }: { formId: string }) {
   return (
     <Card>
       <CardHeader>
