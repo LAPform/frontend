@@ -3,44 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Copy, Edit, FileText, Trash2 } from "lucide-react"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import Link from "next/link"
-
-type Form = {
-  id: string;
-  title: string;
-  description?: string;
-  createdAt: string;
-}
-
-type Query = {
-  isLoading: boolean;
-  error: Error | null;
-  data: Form[] | null;
-}
-
-export const formsQuery : Query = {
-  isLoading: false,
-  error: null,
-  data: [
-    {
-      id: "form-001",
-      title: "Enquête sur le ressenti client",
-      description: "Rassembler les retours des clients sur nos services",
-      createdAt: "2025-10-20T10:30:00.000Z"
-    },
-    {
-      id: "form-002",
-      title: "Nouveau formulaire d'employé",
-      description: "Formulaire pour l'intégration des nouveaux employés",
-      createdAt: "2025-10-21T14:15:00.000Z"
-    },
-    {
-      id: "form-003",
-      title: "Formulaire d'inscription à l'événement",
-      description: "Collecter les inscriptions pour notre prochain événement",
-      createdAt: "2025-10-22T09:00:00.000Z"
-    }
-  ]
-}
+import { formList, Form } from "../db/formData";
 
 export default function FormList() {
   return (
@@ -53,21 +16,21 @@ export default function FormList() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          {formsQuery.isLoading ? (
+          {formList.isLoading ? (
             <div className="text-center py-8">
               <p className="text-muted-foreground">Loading forms...</p>
             </div>
-          ) : formsQuery.error ? (
+          ) : formList.error ? (
             <div className="text-center py-8">
               <p className="text-destructive">Failed to load forms</p>
             </div>
-          ) : !formsQuery.data || formsQuery.data.length === 0 ? (
+          ) : !formList.data || formList.data.length === 0 ? (
             <div className="text-center py-8">
               <p className="text-muted-foreground">No forms created yet</p>
             </div>
           ) : (
             <div className="space-y-4">
-              {formsQuery.data.map((form: Form) => (
+              {formList.data.map((form: Form) => (
                 <Card key={form.id} className="border-l-4 border-l-violet-600">
                   <CardContent className="pt-4">
                     <div className="flex items-center justify-between">

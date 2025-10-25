@@ -111,7 +111,7 @@ export default function ControlPannel() {
         {/* Add Single Password */}
         <div>
           <h3 className="text-sm font-medium mb-3">Ajouter un mot de passe</h3>
-          <form className="flex space-x-2">
+          <form className="flex space-x-2" onSubmit={(e) => e.preventDefault()}>
             <Input
               defaultValue={"newPassword"}
               // onChange={(e) => setNewPassword(e.target.value)}

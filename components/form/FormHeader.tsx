@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardAction } from "@/components/ui/card";
-import { formsQuery } from "../FormList";
 import { Ellipsis, Pencil, Trash2 } from "lucide-react";
 import {
   DropdownMenu,
@@ -11,11 +10,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import Link from "next/link";
+import { formList } from "@/db/formData";
 
 export default function FormHeader({ formId }: { formId: string }) {
 
-  const title = formsQuery.data?.find(form => form.id === formId)?.title || "Titre du formulaire";
-  const description = formsQuery.data?.find(form => form.id === formId)?.description || "Description";
+  const title = formList.data?.find(form => form.id === formId)?.title || "Titre du formulaire";
+  const description = formList.data?.find(form => form.id === formId)?.description || "Description";
 
   return (
     <div>
