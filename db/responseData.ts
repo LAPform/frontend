@@ -25,7 +25,7 @@ export const responseList: Response[] = [
       "qst-002": "pierre.martin@email.com",
       "qst-003": "0623456789",
       "qst-004": "2025-10-16",
-      "qst-005": ["Prix", "Accessibilité"],
+      "qst-005": ["Prix", "Accueil"],
       "qst-006": "Non",
       "qst-007": "Les prix sont un peu élevés par rapport à la concurrence. L'accessibilité pourrait être améliorée."
     },
@@ -57,7 +57,7 @@ export const responseList: Response[] = [
       "qst-002": "luc.moreau@email.com",
       "qst-003": "0645678901",
       "qst-004": "2025-10-18",
-      "qst-005": ["Qualité produit"],
+      "qst-005": ["Qualité produit", "Accueil"],
       "qst-006": "Oui",
       "qst-007": "Produits de qualité mais gamme un peu limitée."
     },
@@ -73,7 +73,7 @@ export const responseList: Response[] = [
       "qst-002": "camille.bernard@email.com",
       "qst-003": "0656789012",
       "qst-004": "2025-10-19",
-      "qst-005": ["Service client", "Prix", "Accessibilité"],
+      "qst-005": ["Service client", "Prix", "Accessibilité", "Accueil"],
       "qst-006": "Ne se prononce pas",
       "qst-007": "Expérience mitigée. Certains aspects à améliorer mais globalement correct."
     },

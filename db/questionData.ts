@@ -15,7 +15,7 @@ export const questionList: Question[] = [
   {
     id: "qst-002",
     form_id: "form-001",
-    type: "text",
+    type: "email",
     text: "Quelle est votre adresse email ?",
     options: [],
     required: true,
