@@ -11,7 +11,9 @@ import { Input } from "@/components/ui/input";
 export default function QuestionsTab({ formId }: { formId: string }) {
   return (
     <div className="space-y-2">
-      {
+      {questionList.filter((question) => question.form_id === formId).length === 0 ? (
+        <p className="text-center text-muted-foreground pt-4">Pas de question pour ce formulaire</p>
+      ) : (
         questionList.filter((question) => question.form_id === formId).map((question) => (
           <Card key={question.id}>
             <CardTitle className="pl-4">
@@ -68,7 +70,7 @@ export default function QuestionsTab({ formId }: { formId: string }) {
             </CardContent>
           </Card>
         ))
-      }
+      )}
     </div>
   )
 }
