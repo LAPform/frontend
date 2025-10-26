@@ -36,10 +36,10 @@ export default function AnswersTab({ formId }: { formId: string }) {
                   {question.required && <span className="text-destructive ml-1">*</span>}
                   <span className="ml-2 text-sm text-muted-foreground">
                     ({totalResponsesByQuestion[question.id] > 1
-                      ? `${totalResponsesByQuestion[question.id]} réponses`
+                      ? `${totalResponsesByQuestion[question.id]}\u00A0réponses`
                       : (totalResponsesByQuestion[question.id] === 1
-                        ? "1 réponse"
-                        : "Aucune réponse")})
+                        ? "1\u00A0réponse"
+                        : "Aucune\u00A0réponse")})
                   </span>
                 </label>
               </div>
@@ -48,7 +48,7 @@ export default function AnswersTab({ formId }: { formId: string }) {
               {(() => {
                 switch (question.type) {
                   case "text":
-                    return <div className="max-h-[270px] overflow-y-auto space-y-2 pr-2">
+                    return <div className="max-h-40 md:max-h-[270px] overflow-y-auto space-y-2 pr-2">
                       {formResponses.map((response) => (
                         <p key={response.id} className="p-3 border rounded bg-muted text-sm">{response.answers[question.id]}</p>
                       ))}
@@ -56,13 +56,13 @@ export default function AnswersTab({ formId }: { formId: string }) {
                   case "textarea":
                     return <p>On pourrait imaginer un affichage des thèmes qui reviennent le plus souvent en mode nuage de mots qu&apos;il faudrait au préalable définir avec du LLM</p>;
                   case "number":
-                    return <div className="max-h-[270px] overflow-y-auto space-y-2 pr-2">
+                    return <div className="max-h-40 md:max-h-[270px] overflow-y-auto space-y-2 pr-2">
                       {formResponses.map((response) => (
                         <p key={response.id} className="p-3 border rounded bg-muted text-sm">{response.answers[question.id]}</p>
                       ))}
                     </div>;
                   case "email":
-                    return <div className="max-h-[270px] overflow-y-auto space-y-2 pr-2">
+                    return <div className="max-h-40 md:max-h-[270px] overflow-y-auto space-y-2 pr-2">
                       {formResponses.map((response) => (
                         <p key={response.id} className="p-3 border rounded bg-muted text-sm">{response.answers[question.id]}</p>
                       ))}
@@ -98,7 +98,7 @@ export default function AnswersTab({ formId }: { formId: string }) {
                               </div>
                               <div className="flex items-center space-x-3">
                                 <span className="text-sm font-medium text-muted-foreground">
-                                  {count} {count > 1 ? 'réponses' : 'réponse'}
+                                  {count}&nbsp;{count > 1 ? 'réponses' : 'réponse'}
                                 </span>
                                 <span className="text-sm font-bold text-primary">
                                   {percentage.toFixed(0)}%
@@ -145,7 +145,7 @@ export default function AnswersTab({ formId }: { formId: string }) {
                               </div>
                               <div className="flex items-center space-x-3">
                                 <span className="text-sm font-medium text-muted-foreground">
-                                  {count} {count > 1 ? 'réponses' : 'réponse'}
+                                  {count}&nbsp;{count > 1 ? 'réponses' : 'réponse'}
                                 </span>
                                 <span className="text-sm font-bold text-primary">
                                   {percentage.toFixed(1)}%
